@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout with Flexbox</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation Bar Styles --- */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #555;
+        }
+        .navbar-brand {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Flexbox Styles */
+        .main-content {
+            display: flex;
+            flex-direction: column; /* Default: Stack items vertically */
+            align-items: center;    /* Center items horizontally */
+            padding: 20px;
+        }
+        .section {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+       .section h2{
+         margin-bottom: 0.5em;
+       }
+
+        /* Media Queries for Responsiveness */
+
+        /* For tablets (min-width: 768px) */
+        @media (min-width: 768px) {
+            .main-content {
+                flex-direction: row;      /* Arrange items in a row */
+                justify-content: space-around;  /* Distribute space evenly */
+                align-items: stretch;          /* **Make items stretch to equal height** */
+            }
+            .section {
+                width: 48%; /* Adjust width for two columns */
+            }
+            .navbar a {
+                float: left;
+            }
+            .navbar-brand{
+              float:left;
+            }
+        }
+
+        /* For desktops (min-width: 992px) */
+        @media (min-width: 992px) {
+            .section {
+                width: 30%; /* Adjust width for three columns */
+            }
+        }
+
+        /* Ensure the image is responsive */
+        img {
+            max-width: 100%;  /* Image should not exceed its container width */
+            height: auto;     /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">My Website</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main class="main-content container">
+        <section class="section">
+            <h2>Section 1</h2>
+            <p>This is the first section of the main content.  It will take up different amounts of horizontal space, depending on screen size, but will always stretch vertically to be as tall as the tallest section in its row.</p>
+            <img src="https://placehold.co/400x200" alt="Placeholder Image">
+        </section>
+        <section class="section">
+            <h2>Section 2</h2>
+            <p>This is the second section of the main content.  It contains more text than the first section.</p>
+        </section>
+        <section class="section">
+            <h2>Section 3</h2>
+            <p>This is the third section of the main content.</p>
+        </section>
+    </main>
+
+    <footer style="background-color:#333; color:white; text-align:center; padding:10px;">
+      <p>&copy; 2025 My Website</p>
+    </footer>
+</body>
+</html>
